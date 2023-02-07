@@ -1,0 +1,16 @@
+.carritoImg {
+    height: 5rem;
+    width: 5rem;
+    object-fit: contain;
+    padding-top: 1rem;
+    cursor: pointer;
+}
+figure{
+    display: flex;
+    align-items: center;
+}
+figcaption{
+    position: relative;
+    left: -1.2rem;
+    top: 1rem;
+}

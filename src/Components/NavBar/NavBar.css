@@ -1,0 +1,14 @@
+.contenedorNav2{
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    margin-right: 2rem;
+    align-items: center;
+}
+.navbar-brand{
+    margin-left:2rem ;
+}
+.Nav{
+    display: flex;
+    justify-content: space-between;
+}
