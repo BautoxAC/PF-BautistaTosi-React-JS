@@ -1,6 +1,6 @@
 .carritoImg {
-    height: 5rem;
-    width: 5rem;
+    height: 7rem;
+    width:7rem;
     object-fit: contain;
     padding-top: 1rem;
     cursor: pointer;
@@ -8,6 +8,8 @@
 figure{
     display: flex;
     align-items: center;
+    height: 6rem;
+    width: 6rem;
 }
 figcaption{
     position: relative;

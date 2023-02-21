@@ -12,3 +12,13 @@
     display: flex;
     justify-content: space-between;
 }
+header{
+    background-color: lightblue;
+}
+.logo{
+    font-size: 2rem;
+    padding-left: 2rem;
+}
+.categorias{
+    font-size: 1.2rem;
+}

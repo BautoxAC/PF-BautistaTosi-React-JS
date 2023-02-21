@@ -1,8 +1,8 @@
 import "./CardWidget.css"
-function CardWidget(params) {
+function CardWidget() {
     return (
         <figure>
-            <img src="./utilities/carrito.png"
+            <img src="/assets/carrito.png"
                 alt="Imagen de un carrito" className="carritoImg"/>
                 <figcaption>6</figcaption>
         </figure>

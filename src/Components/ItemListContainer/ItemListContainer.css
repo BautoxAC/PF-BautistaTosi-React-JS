@@ -1,9 +1,6 @@
-.ItemList{
-    font-size: 1.5rem;
+body{
+    background-color: #30cfff23;
 }
-.ItemListContainer{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height:50vh;
+a{
+    text-decoration: none;
 }
