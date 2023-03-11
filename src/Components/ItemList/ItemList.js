@@ -5,7 +5,7 @@ const ItemList = ({ list }) => {
     const productos = list.map((product, index) => (
         <Link key={index} to={`/Item/${product.id}`}>
             <Card border="primary">
-                <Card.Header className="contendorImg"><img alt={product.alt} src={product.imgUrl} className="imgCard" /></Card.Header>
+                <Card.Header className="contendorImg"><img alt={product.alt} src={`/assets/productos/${product.imgUrl}`} className="imgCard" /></Card.Header>
                 <Card.Body className="texto">
                     <Card.Title>{product.nombre}</Card.Title>
                     <Card.Text>
