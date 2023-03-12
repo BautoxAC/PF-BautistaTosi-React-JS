@@ -1,27 +1,24 @@
-import products from "./../../data/productos.json"
 import "./ItemListDetailContainer.css"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
 import { useParams } from "react-router-dom"
+import { ThemeContext } from "../../Components/context/Context"
 import Counter from "../../Components/Counter/Counter"
 const ItemListDetailContainer = () => {
     const [counter, setCounter] = useState(0)
     const [product, setProduct] = useState({})
     const { Id } = useParams()
-    const getProduct = new Promise(
-        (res) => {
-            res(products.find(product => product.id === Number(Id)))
-        }
-    )
+    const { listaDeProductos: products } = useContext(ThemeContext)
     useEffect(() => {
-        getProduct.then(res => { setProduct(res) })
-    }, [Id])
+        setProduct(products.find(product => product.id === Id))
+    }, [Id || products])
+    const { alt, imgUrl, precio, nombre, stock } = product
     return (
         <div className="contenedorProducto">
-            <img alt={product.alt} src={product.imgUrl} className="imgCard" />
+            <img alt={alt} src={`/assets/productos/${imgUrl}`} className="imgCard" />
             <div>
-                <h1>{product.nombre}</h1>
-                <p>{product.precio}$</p>
-                <Counter count={counter} setCount={setCounter} max={product.stock} />
+                <h1>{nombre}</h1>
+                <p>{precio}$</p>
+                <Counter count={counter} setCount={setCounter} max={stock} />
             </div>
         </div>
     )

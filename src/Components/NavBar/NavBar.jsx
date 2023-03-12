@@ -9,7 +9,7 @@ function NavBar() {
     const getProducts = new Promise(res => {
         const categoriasSinRepetir = [...new Set(products.map((product) => (
             product.categoria.slice(0, 1).toUpperCase() + product.categoria.slice(1))))]
-        res(categoriasSinRepetir.map((categoria, index) => (<NavLink to={`/categoty/${categoria}`} key={index} className="categorias">{categoria}</NavLink>)))
+        res(categoriasSinRepetir.map((categoria, index) => (<NavLink to={`/category/${categoria}`} key={index} className="categorias">{categoria}</NavLink>)))
     }
     )
     useEffect(() => {

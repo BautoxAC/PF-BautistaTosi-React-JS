@@ -9,10 +9,10 @@ import ItemListContainer from './Components/ItemListContainer/ItemListContainer'
 import ItemListDetailContainer from './pages/ItemListDetail/ItemListDetailContainer';
 function App() {
   const [listaDeProductos, setListaDeProductos] = useState([])
+  const db = getFirestore()
   const getProducts = () => {
-    console.log("cargo los productos")
-    const db = getFirestore()
     const querySnapshot = collection(db, "Products")
+    console.log("cargo los productos")
     getDocs(querySnapshot)
       .then(response => {
         const productList = response.docs.map((doc) =>
@@ -23,7 +23,7 @@ function App() {
   }
   useEffect(() => {
     getProducts()
-  }, [getFirestore])
+  }, [db])
   return (
     <>
       <ThemeContext.Provider value={{ listaDeProductos }} >
@@ -31,13 +31,12 @@ function App() {
           <NavBar />
           <Routes>
             <Route path='/' element={<ItemListContainer />} />
-            <Route path='/categoty/:categoryId' element={<ItemListContainer />} />
+            <Route path='/category/:categoryId' element={<ItemListContainer />} />
             <Route path='/Item/:Id' element={<ItemListDetailContainer />} />
           </Routes>
         </BrowserRouter>
       </ThemeContext.Provider>
     </>
-
   );
 }
 
