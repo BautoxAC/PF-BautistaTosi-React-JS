@@ -1,17 +1,15 @@
 import "./CardWidget.css"
-import { useContext, useEffect } from "react"
+import { useContext, useMemo } from "react"
 import { ThemeContext } from "../context/Context"
 function CardWidget() {
     const { listCart } = useContext(ThemeContext)
     console.log(listCart)
-    useEffect(() => {
-        console.log(listCart.length)
-    }, [listCart.length])
+    const quantityCart = useMemo(() => (listCart.reduce((acc, { quantity }) => acc + quantity, 0)), [listCart])
     return (
         <figure>
             <img src="/assets/carrito.png"
                 alt="Imagen de un carrito" className="carritoImg" />
-            <figcaption>{listCart.length}</figcaption>
+            <figcaption>{quantityCart}</figcaption>
         </figure>
     )
 }
