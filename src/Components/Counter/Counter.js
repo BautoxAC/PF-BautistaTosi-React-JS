@@ -13,9 +13,9 @@ const Counter = ({ count, setCount, max }) => {
     }
     return (
         <div className="counter">
-                <Button onClick={onAdd} variant="primary">+</Button>
-                <p>{count}</p>
-                <Button onClick={onSubstract} variant="primary">-</Button>
+            <Button onClick={onAdd} variant="primary">+</Button>
+            <p>{count}</p>
+            <Button onClick={onSubstract} variant="primary">-</Button>
         </div>
     )
 }
