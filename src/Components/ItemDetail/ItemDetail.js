@@ -18,8 +18,8 @@ const ItemDetail = ({ product }) => {
             }
         } else {
             listCart.push({ ...product, quantity: quantity, disponibility: product.stock - quantity })
-            setListCart([...listCart])
         }
+        setListCart([...listCart])
     }
     return (
         <div className="contenedorProducto">
