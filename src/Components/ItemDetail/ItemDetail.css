@@ -1,10 +1,15 @@
 .contenedorProducto {
     display: flex;
-    justify-content: center;
     align-items: center;
+    width: max-content;
+    border: 3px inset lightblue;
+    border-radius: 4px;
+    padding: 2rem;
+    padding-right: 5rem;
     height: 60vh;
     gap: 3rem;
     margin-top: 3rem;
+    background-color: rgb(224, 241, 246);
 }
 
 .contenedorProducto img {
