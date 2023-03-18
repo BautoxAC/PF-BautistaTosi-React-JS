@@ -1,4 +1,4 @@
-.contenedorProducto{
+.contenedorProducto {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -6,13 +6,16 @@
     gap: 3rem;
     margin-top: 3rem;
 }
-.contenedorProducto img{
+
+.contenedorProducto img {
     width: 20rem;
     height: 20rem;
 }
-.contenedorProducto div{
+
+.contenedorProducto div {
     text-align: center;
 }
-.contenedorProducto div h1{
+
+.contenedorProducto div h1 {
     text-align: center;
 }

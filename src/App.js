@@ -11,6 +11,7 @@ import Cart from "./pages/Cart/Cart";
 function App() {
   const [listaDeProductos, setListaDeProductos] = useState([])
   const [listCart, setListCart] = useState([])
+  const [purchase, setPurchase] = useState(true)
   const db = getFirestore()
   const getProducts = () => {
     const querySnapshot = collection(db, "Products")
@@ -22,12 +23,13 @@ function App() {
         setListaDeProductos(productList)
       })
       .catch(error => console.log(error))
+    setPurchase(false)
   }
   useEffect(() => {
-    getProducts()
-  }, [db])
+    purchase === true && getProducts()
+  }, [purchase])
   return (
-    <ThemeContext.Provider value={{ listaDeProductos, listCart, setListCart }} >
+    <ThemeContext.Provider value={{ listaDeProductos, listCart, setListCart, setPurchase }} >
       <BrowserRouter>
         <NavBar />
         <Routes>

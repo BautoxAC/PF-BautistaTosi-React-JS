@@ -3,6 +3,7 @@
     width: 5rem;
     object-fit: contain;
 }
+
 .ContenedorProductos {
     display: flex;
     align-items: center;
@@ -12,15 +13,17 @@
     gap: 1rem;
     min-height: 40vh;
 }
-.texto{
+.texto {
     text-align: center;
     background-color: rgb(234, 235, 241);
 }
-.card{
+
+.card {
     height: 12rem;
     width: 8rem;
 }
-.contendorImg{
+
+.contendorImg {
     display: flex;
     justify-content: center;
 }
