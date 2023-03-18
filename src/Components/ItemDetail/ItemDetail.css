@@ -19,3 +19,10 @@
 .contenedorProducto div h1 {
     text-align: center;
 }
+.addCartButton{
+    margin-top: 1rem;
+    color: #e0f4f3;
+}
+.addCartButton:hover{
+    color: #687b95;
+}

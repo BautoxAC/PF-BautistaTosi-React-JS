@@ -5,9 +5,7 @@ import { ThemeContext } from "../context/Context"
 import Counter from "../Counter/Counter"
 import "./ItemDetail.css"
 const ItemDetail = ({ product }) => {
-    const navigate = useNavigate();
-
-
+    const navigate = useNavigate()
     const { listCart, setListCart } = useContext(ThemeContext)
     const [quantity, setQuantity] = useState(0)
     const addCart = () => {
@@ -41,8 +39,9 @@ const ItemDetail = ({ product }) => {
             <div>
                 <h1>{product.nombre}</h1>
                 <p>{product.precio}$</p>
+                <p>Disponibles: {product.disponibility}</p>
                 <Counter count={quantity} setCount={setQuantity} max={product.disponibility} />
-                <Button onClick={addCart}>Añadir al carrito</Button>
+                <Button onClick={addCart} className="addCartButton" variant="info">Añadir al carrito</Button>
             </div>
         </div >
     )
