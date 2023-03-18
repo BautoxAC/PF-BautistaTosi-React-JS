@@ -3,7 +3,6 @@ import { useContext, useMemo } from "react"
 import { ThemeContext } from "../context/Context"
 function CardWidget() {
     const { listCart } = useContext(ThemeContext)
-    console.log(listCart)
     const quantityCart = useMemo(() => (listCart.reduce((acc, { quantity }) => acc + quantity, 0)), [listCart])
     return (
         <figure>

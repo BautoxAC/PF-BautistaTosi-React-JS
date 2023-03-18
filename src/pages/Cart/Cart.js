@@ -1,25 +1,28 @@
 import { collection, addDoc, getFirestore, doc, updateDoc } from "firebase/firestore"
-import { useContext } from "react"
+import { useContext, useMemo, useState } from "react"
 import { ThemeContext } from "../../Components/context/Context"
 import { Button } from "react-bootstrap"
 import "./Cart.css"
+import ItemCart from "../../Components/ItemCart/ItemCart"
 import { v4 as uuidv4 } from 'uuid'
 const Cart = () => {
-  const { listCart, setListCart, setPurchase } = useContext(ThemeContext)
-  const cart = listCart.map(({ nombre, quantity, precio, imgUrl, descripcion }, index) => (
-    <tr key={index}>
-      <td className="ImgContainer">
-        <picture className="ImgContainer__picture">
-          <img alt={`foto de ${descripcion}`} src={`/assets/productos/${imgUrl}`} className="imgCarrito" />
-        </picture>
-      </td>
-      <td>{nombre}</td>
-      <td>{quantity}</td>
-      <td>{precio}$</td>
-      <td>{quantity * precio}$</td>
-    </tr>
-  ))
-  const total = listCart.reduce((acc, pro) => acc + pro.precio * pro.quantity, 0)
+  const { listCart, setListCart, setPurchase, listaDeProductos } = useContext(ThemeContext)
+  function eliminateCart() {
+    for (const pro of listaDeProductos) {
+      pro.quantity = 0
+      pro.disponibility = pro.stock
+    }
+    setListCart([])
+  }
+  const [subTotals, setSubtotals] = useState(listCart.map((pro) => {
+    return({id: pro.id, subTotal: pro.precio * pro.quantity})
+  }))
+  const cart = useMemo(
+    () => {
+      const total = subTotals.reduce((acc, pro) => acc + pro.subTotal, 0)
+      const list = listCart.map((pro, index) => { return (<ItemCart product={pro} key={index} setSubTotals={setSubtotals} subTotals={subTotals} i={index} />) })
+      return ({ list, total })
+    }, [listCart, subTotals])
   function finishBuying() {
     const orderNumber = uuidv4()
     setPurchase(true)
@@ -44,7 +47,7 @@ const Cart = () => {
         products: [
           ...listCart
         ],
-        total: total
+        total: cart.total
       })
     }
     updateStocks()
@@ -62,12 +65,13 @@ const Cart = () => {
             <th>Cantidad</th>
             <th>C/U</th>
             <th>Subtotal</th>
+            <th><button className="removeCartButton" onClick={eliminateCart}> <img alt="boton para eliminar producto" src={`/assets/carritoEliminar.png`} className="removeCartImg" /> </button></th>
           </tr>
         </thead>
-        <tbody>{cart}</tbody>
+        <tbody>{cart.list}</tbody>
         <tfoot>
           <tr>
-            <td>Total: {total}$</td>
+            <td>Total: {cart.total}$</td>
             <td><Button className="buyButton" onClick={finishBuying}>Terminar Compra</Button></td>
           </tr>
         </tfoot>

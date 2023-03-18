@@ -40,7 +40,7 @@ const ItemDetail = ({ product }) => {
                 <h1>{product.nombre}</h1>
                 <p>{product.precio}$</p>
                 <p>Disponibles: {product.disponibility}</p>
-                <Counter count={quantity} setCount={setQuantity} max={product.disponibility} />
+                <Counter count={quantity} setCount={setQuantity} max={product.disponibility} min={0} />
                 <Button onClick={addCart} className="addCartButton" variant="info">Añadir al carrito</Button>
             </div>
         </div >

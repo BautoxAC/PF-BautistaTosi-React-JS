@@ -1,13 +1,13 @@
 import { Button } from "react-bootstrap"
 import "./Counter.css"
-const Counter = ({ count, setCount, max }) => {
+const Counter = ({ count, setCount, max, min }) => {
     const onAdd = () => {
         if (count < max) {
             setCount(count + 1)
         }
     }
     const onSubstract = () => {
-        if (count !== 0) {
+        if (count !== min) {
             setCount(count - 1)
         }
     }
