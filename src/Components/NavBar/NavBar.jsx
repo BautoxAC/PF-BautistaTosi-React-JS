@@ -13,7 +13,6 @@ function NavBar() {
         res(categoriasSinRepetir.map((categoria, index) => (<NavLink to={`/category/${categoria}`} key={index} className="categorias">{categoria}</NavLink>)))
     }
     )
-    
     useEffect(() => {
         getProducts
             .then(response => setCategories(response))

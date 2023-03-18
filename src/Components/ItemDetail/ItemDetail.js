@@ -24,6 +24,7 @@ const ItemDetail = ({ product }) => {
             }
             product.disponibility -= quantity
             setListCart([...listCart])
+            setQuantity(0)
         } else {
             if (product.disponibility === 0) {
                 alert("Todos los Items disponibles estan el carrito\nPuedes gestinarlos desde el carrito")

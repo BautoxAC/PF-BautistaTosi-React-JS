@@ -13,13 +13,16 @@ const ItemCart = ({ product, subTotals, setSubTotals, i }) => {
         listaDeProductos[findPosition(listaDeProductos)].quantity = 0
         setListCart([...listCart])
     }
-    const { precio, stock, id, descripcion, imgUrl, nombre } = product
+    const { precio, stock, id, descripcion, imgUrl, nombre, quantity } = product
     const subTotal = subTotals[i].subTotal
     const { listCart, setListCart, listaDeProductos } = useContext(ThemeContext)
-    const [count, setCount] = useState(listaDeProductos[findPosition(listaDeProductos)].quantity)
+    const [count, setCount] = useState(quantity)
     useEffect(() => {
-        listaDeProductos[findPosition(listaDeProductos)].quantity=count
-        listaDeProductos[findPosition(listaDeProductos)].disponibility=stock-count
+        listaDeProductos[findPosition(listaDeProductos)].quantity = count
+        listaDeProductos[findPosition(listaDeProductos)].disponibility = stock - count
+        listCart[findPosition(listCart)].quantity = count
+        listCart[findPosition(listCart)].disponibility = stock - count
+        setListCart([...listCart])
         subTotals[i].subTotal = count * precio
         setSubTotals([...subTotals])
     }, [count])
