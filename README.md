@@ -1,14 +1,12 @@
-Readme.md: El archivo debe estar en el root del proyecto para dar una breve
-introducción acerca de su proyecto y qué ideas o enfoque eligió para el
-mismo. Si incluyó dependencias extra por npm (por fuera de las trabajadas en
-clase), aparte debe hacer un resumen explicando sus decisiones.
 El proyecto final de ReactJS lo base en el proyecto de mi curso que es el de desarrolo web que de ahi saque la lista de productos, este proyecto serie un e-commerce convencional con un login, register, carrito y una lista de productos que es filtrada por las distintas categorias
 
 las dependencias utilizadas fueron:
 react-bootstrap: la utilice para el template de las cards del itemList y el navbar
+https://react-bootstrap.github.io/getting-started/introduction/
 
 react-toastify y sweetalert2: para no utilizar los alert comunes de javascript añadi estas ya que tienen una gran flexiblilidad y tienen un documentacion facil de leer
-
+https://fkhadra.github.io/react-toastify/introduction/
+https://sweetalert2.github.io/recipe-gallery/
 
 # Getting Started with Create React App
 

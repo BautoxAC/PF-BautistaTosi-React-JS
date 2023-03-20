@@ -55,11 +55,11 @@ const Cart = () => {
         setPurchase(true)
         const db = getFirestore()
         const updateStocks = () => {
-          listCart.forEach(({ id, stock }) => {
+          listCart.forEach(({ id, stock, quantity }) => {
             const querySnapshot = doc(db, "Products", id)
             updateDoc(querySnapshot, {
-              stock: stock,
-              disponibility: stock
+              stock: stock - quantity,
+              disponibility: stock - quantity
             })
               .then(console.log("actualizacion de stock"))
               .catch(err => console.log(err))

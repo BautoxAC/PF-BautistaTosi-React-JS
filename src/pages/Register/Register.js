@@ -38,7 +38,7 @@ const Register = () => {
         })
     }
     function handleMax(e) {
-        if (e.target.value.length >= 50 || e.key === "<" || e.key === ">" || e.key === "{" || e.key === "}" || e.key === "=") {
+        if (e.target.value.length >= 100 || e.key === "<" || e.key === ">" || e.key === "{" || e.key === "}" || e.key === "=") {
             e.preventDefault()
         }
     }
