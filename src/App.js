@@ -19,7 +19,6 @@ function App() {
   const db = getFirestore()
   const getProducts = () => {
     const querySnapshot = collection(db, "Products")
-    console.log("cargo los productos")
     getDocs(querySnapshot)
       .then(response => {
         const productList = response.docs.map((doc) =>

@@ -11,7 +11,6 @@ export default function ItemListContainer() {
         const filteredProductList = categoryId ? products.filter(product => product.categoria === categoryId.toLowerCase()) : products
         setProductList(filteredProductList)
     }, [categoryId, products])
-    console.log(products.find(product => product.categoria === "x"))
     return (
         <div className="ItemListContainer">
             {typeof (categoryId) === "undefined" && <ItemList list={productList}></ItemList>}

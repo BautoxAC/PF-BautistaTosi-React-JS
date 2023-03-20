@@ -61,7 +61,7 @@ const Cart = () => {
               stock: stock - quantity,
               disponibility: stock - quantity
             })
-              .then(console.log("actualizacion de stock"))
+              .then(res=>console.log(res))
               .catch(err => console.log(err))
           })
           const timestamp = Timestamp.now().toDate()

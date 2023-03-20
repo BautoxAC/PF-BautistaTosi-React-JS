@@ -14,7 +14,16 @@ const ItemDetail = ({ product }) => {
                 const productRepited = listCart.find(pro => pro.id === product.id)
                 const positionRepited = listCart.indexOf(productRepited)
                 if (productRepited.disponibility < quantity || quantity === 0) {
-                    alert("ingrese un numero entre 1 y " + productRepited.disponibility)
+                    toast.warn("ingrese un numero entre 1 y " + productRepited.disponibility, {
+                        position: "bottom-right",
+                        autoClose: 1500,
+                        hideProgressBar: true,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "colored",
+                    })
                 } else {
                     listCart[positionRepited].quantity += quantity
                     listCart[positionRepited].disponibility -= quantity
@@ -61,7 +70,6 @@ const ItemDetail = ({ product }) => {
             }
         }
     }
-    console.log(product)
     return (
         <div className="contenedorProducto">
             <ToastContainer />

@@ -43,11 +43,11 @@ const ItemCart = ({ product, subTotals, setSubTotals, i }) => {
     return (
         <>
             <tr>
-                <ToastContainer />
                 <td className="ImgContainer">
                     <picture className="ImgContainer__picture">
                         <img alt={`foto de ${descripcion}`} src={`/assets/productos/${imgUrl}`} className="imgCarrito" />
                     </picture>
+                    <ToastContainer />
                 </td>
                 <td>{nombre}</td>
                 <td><Counter count={count} setCount={setCount} max={stock} min={1} /></td>
