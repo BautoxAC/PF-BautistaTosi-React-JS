@@ -1,0 +1,11 @@
+.AuthLoginContainer{
+    height: 72vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+}
+.AuthLoginContainer div a{
+    padding: 1rem;
+}

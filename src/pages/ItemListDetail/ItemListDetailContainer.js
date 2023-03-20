@@ -6,13 +6,14 @@ import "./ItemListDetailContainer.css"
 const ItemListDetailContainer = () => {
     const [product, setProduct] = useState({})
     const { Id } = useParams()
-    const { listaDeProductos: products } = useContext(ThemeContext)
+    const { productList: products } = useContext(ThemeContext)
     useEffect(() => {
         setProduct(products.find(product => product.id === Id))
-    }, [Id || products])
+    }, [Id, products])
     return (
         <div className="listDetailConatainer">
-            <ItemDetail product={product} />
+            {products.find(product => product.id === Id) ? <ItemDetail product={product} /> :
+            <div className="notFoundContainer">Producto inexistente</div>}
         </div>
     )
 }

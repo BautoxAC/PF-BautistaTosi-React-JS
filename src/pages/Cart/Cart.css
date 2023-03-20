@@ -9,7 +9,8 @@
     background-color: #1cf;
     width: 100%;
 }
-.cart tfoot{
+
+.cart tfoot {
     display: flex;
     justify-content: end;
     gap: 2rem;
@@ -23,10 +24,12 @@
     padding: 2rem;
     text-align: center;
 }
-.cart tfoot tr{
+
+.cart tfoot tr {
     gap: 2rem;
-    padding: 2rem .5rem;
+    padding: 2rem 4rem;
 }
+
 .cart tbody tr td,
 .cart thead tr th {
     flex-basis: 20%;
@@ -85,13 +88,18 @@
     height: 10rem;
     margin: auto;
 }
-.buyButton{
+
+.buyButton {
     font-size: 1.2rem;
 }
-.removeItemImg, .removeCartImg{
+
+.removeItemImg,
+.removeCartImg {
     height: 5rem;
 }
-.removeItemButton, .removeCartButton{
+
+.removeItemButton,
+.removeCartButton {
     background: transparent;
     border: transparent;
 }

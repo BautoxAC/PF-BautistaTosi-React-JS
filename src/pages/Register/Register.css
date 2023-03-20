@@ -1,0 +1,39 @@
+.registerContainer,.loginContainer{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border: 3px inset lightblue;
+    width: min-content;
+    padding: 1rem 1.5rem;
+    margin: .3rem;
+    margin: auto;
+    margin-top: .8rem;
+}
+.registerContainer{
+    width: 300px;
+}
+.loginContainer{
+    width: 350px;
+    margin-top: 3rem;
+}
+.registerContainer form, .loginContainer form{
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.loginContainer form{
+    gap: 1rem;
+}
+.registerContainerSubmit,.loginContainerSubmit{
+    background-color: transparent;
+    color: white;
+    border: transparent;
+}
+.buttonsContainer{
+    height: min-content;
+    padding-top: 1.6rem;
+    display: flex;
+    justify-content: space-between;
+}

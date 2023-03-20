@@ -1,0 +1,11 @@
+.imgUser{
+    position: absolute;
+    height: 4rem;
+    bottom: 0;
+}
+.ContainerImgUser figcaption{
+    position: absolute;
+    top: 95vh;
+    left: 4rem;
+    font-size: 1.3rem;
+}

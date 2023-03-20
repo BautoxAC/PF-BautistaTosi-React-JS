@@ -5,7 +5,7 @@ import CardWidget from '../CardWidget/CardWidget';
 import { ThemeContext } from "../context/Context";
 import { useEffect, useState, useContext } from "react";
 function NavBar() {
-    const { listaDeProductos: products } = useContext(ThemeContext)
+    const { productList: products } = useContext(ThemeContext)
     const [categories, setCategories] = useState([])
     const getProducts = new Promise(res => {
         const categoriasSinRepetir = [...new Set(products.map((product) => (

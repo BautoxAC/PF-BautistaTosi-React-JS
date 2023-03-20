@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom"
 import { ThemeContext } from "../context/Context"
 import Counter from "../Counter/Counter"
 import "./ItemDetail.css"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const ItemDetail = ({ product }) => {
     const navigate = useNavigate()
     const { listCart, setListCart } = useContext(ThemeContext)
@@ -25,17 +27,47 @@ const ItemDetail = ({ product }) => {
             product.disponibility -= quantity
             setListCart([...listCart])
             setQuantity(0)
+            toast.success('Compra añadida correctamente', {
+                position: "bottom-right",
+                autoClose: 1000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+            })
         } else {
             if (product.disponibility === 0) {
-                alert("Todos los Items disponibles estan el carrito\nPuedes gestinarlos desde el carrito")
-                navigate("/")
+                toast.warn("Todos los Items disponibles estan el carrito, puedes gestinarlos desde el carrito", {
+                    position: "bottom-right",
+                    autoClose: 5000,
+                    hideProgressBar: true,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                });
+                setTimeout(() => { navigate("/") }, 5000)
             } else {
-                alert("ingrese un numero entre 1 y " + product.disponibility)
+                toast.error("Ingrese un numero entre 1 y " + product.disponibility, {
+                    position: "bottom-right",
+                    autoClose: 1000,
+                    hideProgressBar: true,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                });
             }
         }
     }
+    console.log(product)
     return (
         <div className="contenedorProducto">
+            <ToastContainer />
             <img alt={product.alt} src={`/assets/productos/${product.imgUrl}`} className="imgCard" />
             <div>
                 <h1>{product.nombre}</h1>
