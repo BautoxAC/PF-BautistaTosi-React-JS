@@ -1,4 +1,4 @@
-![](./React%20App%20-%20Opera%202023-03-20%2000-06-44.mp4)(width="100px")
+![](./React-App-Opera-2023-03-20-00-06-44.gif)(width="100px")
 El proyecto final de ReactJS lo base en el proyecto de mi curso que es el de desarrolo web que de ahi saque la lista de productos, este proyecto serie un e-commerce convencional con un login, register, carrito y una lista de productos que es filtrada por las distintas categorias
 
 las dependencias utilizadas fueron:
