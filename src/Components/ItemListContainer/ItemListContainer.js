@@ -16,7 +16,7 @@ export default function ItemListContainer() {
         <div className="ItemListContainer">
             {typeof (categoryId) === "undefined" && <ItemList list={productList}></ItemList>}
             {(typeof (categoryId) !== "undefined" && products.find(product => product.categoria === categoryId.toLowerCase())) && <ItemList list={productList}></ItemList>}
-            {typeof (categoryId) !== "undefined" && typeof (products.find(product => product.categoria === categoryId.toLowerCase())) && <div className="notFoundContainer">Categoria no encontrada</div>}
+            {typeof (categoryId) !== "undefined" && typeof (products.find(product => product.categoria === categoryId.toLowerCase())) ==="undefined" && <div className="notFoundContainer">Categoria no encontrada</div>}
         </div>
     )
 }

@@ -1,12 +1,16 @@
 import Card from 'react-bootstrap/Card';
 import "./ItemList.css"
 import { Link } from "react-router-dom";
+import Swal from 'sweetalert2'
 const ItemList = ({ list }) => {
     const productos = list.map(({ id, alt, imgUrl, precio, nombre, stock }, index) => {
         const handleClick = (e) => {
             if (stock === 0) {
                 e.preventDefault()
-                alert("No hay stock disponible del producto en este momento")
+                Swal.fire({
+                    title: "No hay stock disponible del producto en este momento",
+                    icon: 'error'
+                })
             }
         }
         return <Link key={index} to={`/Item/${id}`} onClick={handleClick}>

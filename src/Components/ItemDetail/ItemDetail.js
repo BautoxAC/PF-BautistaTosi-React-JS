@@ -1,13 +1,11 @@
 import { useState, useContext } from "react"
 import { Button } from "react-bootstrap"
-import { useNavigate } from "react-router-dom"
 import { ThemeContext } from "../context/Context"
 import Counter from "../Counter/Counter"
 import "./ItemDetail.css"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 const ItemDetail = ({ product }) => {
-    const navigate = useNavigate()
     const { listCart, setListCart } = useContext(ThemeContext)
     const [quantity, setQuantity] = useState(0)
     const addCart = () => {
@@ -39,17 +37,16 @@ const ItemDetail = ({ product }) => {
             })
         } else {
             if (product.disponibility === 0) {
-                toast.warn("Todos los Items disponibles estan el carrito, puedes gestinarlos desde el carrito", {
+                toast.warn("Todos los Items disponibles estan el carrito", {
                     position: "bottom-right",
-                    autoClose: 5000,
+                    autoClose: 1500,
                     hideProgressBar: true,
                     closeOnClick: true,
                     pauseOnHover: true,
                     draggable: true,
                     progress: undefined,
                     theme: "colored",
-                });
-                setTimeout(() => { navigate("/") }, 5000)
+                })
             } else {
                 toast.error("Ingrese un numero entre 1 y " + product.disponibility, {
                     position: "bottom-right",
