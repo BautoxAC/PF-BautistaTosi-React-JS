@@ -7,15 +7,13 @@ import { useEffect, useState, useContext } from "react";
 function NavBar() {
     const { productList: products } = useContext(ThemeContext)
     const [categories, setCategories] = useState([])
-    const getProducts = new Promise(res => {
+    const getCategories = () => {
         const categoriasSinRepetir = [...new Set(products.map((product) => (
             product.categoria.slice(0, 1).toUpperCase() + product.categoria.slice(1))))]
-        res(categoriasSinRepetir.map((categoria, index) => (<NavLink to={`/category/${categoria}`} key={index} className="categorias">{categoria}</NavLink>)))
+            setCategories(categoriasSinRepetir.map((categoria, index) => (<NavLink to={`/category/${categoria}`} key={index} className="categorias">{categoria}</NavLink>)))
     }
-    )
     useEffect(() => {
-        getProducts
-            .then(response => setCategories(response))
+        getCategories()
     }, [products])
     return (
         <header>
